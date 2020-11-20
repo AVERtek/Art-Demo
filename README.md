@@ -1,2 +1,2 @@
-# Apartment
-AR Apartment
+# Art Demo
+AR Art
