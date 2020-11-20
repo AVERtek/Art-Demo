@@ -32,7 +32,6 @@
   }, 500.0);
 })();
 </script>
-
 <!-- Loads <model-viewer> for modern browsers: -->
  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
   </script>
