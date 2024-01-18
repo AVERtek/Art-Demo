@@ -18,9 +18,25 @@
   <!-- OPTIONAL: Include prismatic.js for Magic Leap support -->
   <!--<script src="https://unpkg.com/@magicleap/prismatic/prismatic.min.js"></script>-->
 
-<model-viewer loading="eager" camera-controls autoplay ar shadow-intensity="1" src="Models/scene.gltf" ar="" ar-modes="scene-viewer webxr quick-look" ios-src="Positivasaurus.usdz" alt="Art Demo" ar-scale="auto" style="width: 95%; height: 500px" exposure="0.5">  <button slot="ar-button" style="background-color: white; border-radius: 8px; border: 1 px solid black; position: absolute; top: 20px; right: 20px; ">
+<model-viewer loading="eager" id="change-speed-demo" camera-controls autoplay ar shadow-intensity="1" src="Models/scene.gltf" ar="" ar-modes="scene-viewer webxr quick-look" ios-src="Positivasaurus.usdz" alt="Art Demo" ar-scale="auto" style="width: 95%; height: 500px" exposure="0.5">  <button slot="ar-button" style="background-color: white; border-radius: 8px; border: 1 px solid black; position: absolute; top: 20px; right: 20px; ">
+  👋 AR Click Here
+  </button>
+</model-viewer>
 
-<!--<model-viewer loading="eager" id="paused-change-demo" camera-controls autoplay animation-name="Idle" ar shadow-intensity="1" src="Models/scene.gltf" ar="" ar-modes="scene-viewer webxr quick-look" ios-src="Positivasaurus.usdz" alt="Art Demo" ar-scale="auto" style="width: 95%; height: 500px" exposure="0.5">  <button slot="ar-button" style="background-color: white; border-radius: 8px; border: 1 px solid black; position: absolute; top: 20px; right: 20px; "> -->
+<script type="module">
+  const modelViewer = document.querySelector('#change-speed-demo');
+  const speeds = [1, 2, 0.5, -1];
+
+  let i = 0;
+  const play = () => {
+    modelViewer.timeScale = speeds[i++%speeds.length];
+    modelViewer.play({repetitions: 1});
+  };
+  modelViewer.addEventListener('load', play);
+  modelViewer.addEventListener('finished', play);
+</script>
+
+<!--<model-viewer loading="eager" id="paused-change-demo" camera-controls autoplay animation-name="Idle" ar shadow-intensity="1" src="Models/scene.gltf" ar="" ar-modes="scene-viewer webxr quick-look" ios-src="Positivasaurus.usdz" alt="Art Demo" ar-scale="auto" style="width: 95%; height: 500px" exposure="0.5">  <button slot="ar-button" style="background-color: white; border-radius: 8px; border: 1 px solid black; position: absolute; top: 20px; right: 20px; ">
       👋 AR Click Here
   </button>
 </model-viewer>
@@ -33,7 +49,8 @@
       'Tail_whip': 'Idle';
   }, 300.0);
 })();
-</script>
+</script> -->
+
 <!-- Loads <model-viewer> for modern browsers: -->
  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
   </script>
